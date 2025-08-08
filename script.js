@@ -32,7 +32,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
-// Smooth scrolling for navigation links with offset
+// Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -40,13 +40,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const target = document.querySelector(targetId);
         
         if (target) {
-            const navbarHeight = document.querySelector('.navbar').offsetHeight;
-            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
-            const offsetPosition = targetPosition - navbarHeight - 20; // 20px extra padding
-            
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
         }
     });
@@ -269,14 +265,15 @@ function animateCounter(element, target, duration = 2000) {
     const start = 0;
     const increment = target / (duration / 16);
     let current = start;
+    const suffix = element.getAttribute('data-suffix') || '';
     
     const timer = setInterval(() => {
         current += increment;
         if (current >= target) {
-            element.textContent = target + (element.textContent.includes('+') ? '+' : '');
+            element.textContent = target + suffix;
             clearInterval(timer);
         } else {
-            element.textContent = Math.floor(current) + (element.textContent.includes('+') ? '+' : '');
+            element.textContent = Math.floor(current) + suffix;
         }
     }, 16);
 }

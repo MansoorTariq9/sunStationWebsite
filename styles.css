@@ -43,7 +43,9 @@ body {
 /* Navbar Spacer */
 .navbar-spacer {
     height: 100px;
+    display: block;
     visibility: hidden;
+    pointer-events: none;
 }
 
 /* Scroll Offset for Fixed Navbar */
@@ -114,7 +116,7 @@ section[id] {
 /* Hero Section */
 .hero {
     background: var(--gradient-1);
-    padding: 120px 0 80px;
+    padding: 120px 0 60px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -133,11 +135,14 @@ section[id] {
 
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 10;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
     color: #fff;
     margin-bottom: 1rem;
     font-weight: 700;
@@ -145,9 +150,9 @@ section[id] {
 }
 
 .hero-subtitle {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: #fff;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     opacity: 0.95;
     animation: fadeInUp 0.8s ease 0.2s both;
 }
@@ -191,10 +196,15 @@ section[id] {
 }
 
 .hero-stats {
-    display: flex;
-    justify-content: center;
-    gap: 4rem;
-    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    max-width: 800px;
+    margin: 3rem auto 0;
     animation: fadeInUp 0.8s ease 0.6s both;
 }
 
@@ -203,9 +213,9 @@ section[id] {
 }
 
 .stat h3 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     color: #fff;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
 }
 
 .stat p {
@@ -274,7 +284,7 @@ section[id] {
 
 /* Products Section */
 .products-section {
-    padding: 80px 0;
+    padding: 40px 0 80px;
 }
 
 .products-section.alt-bg {
@@ -552,10 +562,39 @@ section[id] {
     margin-bottom: 0.5rem;
 }
 
-/* About Section */
-.about-section {
-    padding: 80px 0;
+/* About Page Section */
+.about-page-section {
+    padding: 40px 0 80px;
     background: #fff;
+}
+
+.about-page-section h1 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.about-page-section h3 {
+    color: var(--secondary-color);
+    margin: 2rem 0 1rem;
+}
+
+.about-features {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.about-features li {
+    padding: 0.5rem 0;
+    color: #666;
+}
+
+.image-caption {
+    text-align: center;
+    margin-top: 1rem;
+    font-style: italic;
+    color: #666;
 }
 
 .about-content {
@@ -837,8 +876,9 @@ section[id] {
     }
 
     .hero-stats {
-        flex-direction: column;
-        gap: 2rem;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1.5rem;
     }
 
     .about-content,
@@ -962,8 +1002,9 @@ section[id] {
 /* Back to Home Button */
 .back-to-home {
     background: #f8f9fa;
-    padding: 20px 0;
-    margin-top: 70px;
+    padding: 15px 0;
+    margin-top: 80px;
+    margin-bottom: 30px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
@@ -1269,6 +1310,7 @@ section[id] {
 .services-section {
     padding: 80px 0;
     background: #f8f9fa;
+    scroll-margin-top: 80px;
 }
 
 .services-grid {
